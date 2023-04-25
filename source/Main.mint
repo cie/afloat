@@ -1,8 +1,8 @@
 component Main {
   style app {
     display: grid;
-    place-content: stretch;
-    place-items: stretch;
+    /* place-content: center; */
+    /* place-items: center; */
     background-color: #282C34;
     height: 100vh;
     width: 100vw;

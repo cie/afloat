@@ -1,36 +1,28 @@
 store Sea {
   state waves = [ ] of Wave
   state boats = [ { x: 200, y: 200 } ] of Boat
+  state shore = { y: 500 }
 
   fun addWave (wave : Wave) {
     next
       {
         waves:
-          waves
-          |> Array.push(wave)
+          waves |> Array.push(wave)
+          |> Array.push({ x: wave.x, y: 2 * Sea.shore.y - wave.y, t: wave.t })
       }
   }
-}
 
-component SeaView {
-  property t : Number
+  fun draw() {
+    Drawing.each([
+      Drawing.each(waves |> Array.map(Wave.draw)),
+      shore |> Shore.draw,
+      Drawing.each(boats |> Array.map(Boat.draw))
+    ])
+  }
 
-  fun render {
-    <g>
-      <{
-        Sea.waves
-        |> Array.map(
-          (wave : Wave) : Html {
-            <WaveView wave={wave} />
-          })
-      }>
-      <{
-        Sea.boats
-        |> Array.map(
-          (boat : Boat) : Html {
-            <BoatView boat={boat} />
-          })
-      }>
-    </g>
+  fun update() {
+    next {
+      boats: boats |> Array.map(Boat.update),
+    }
   }
 }

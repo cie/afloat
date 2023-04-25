@@ -9,14 +9,18 @@ component Viewport {
     frames:
       (ms : Number) : Promise(Void) {
         Clock.tick(ms)
+        Sea.update()
+        Sea.draw() |> Drawing.onto(viewport)
         next { }
       }
   }
 
   fun render : Html {
-    <svg::viewport onMouseDown={handleMouseDown}>
-      <SeaView t={t}/>
-    </svg>
+    <canvas::viewport as viewport
+      width="800"
+      height="600"
+       onMouseDown={handleMouseDown}>
+    </canvas>
   }
 
   fun handleMouseDown (e : Html.Event) {
