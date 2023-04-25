@@ -14,12 +14,8 @@ component Viewport {
   }
 
   fun render : Html {
-    <svg::viewport
-      viewBox="0 0 100 100"
-      onMouseDown={handleMouseDown}>
-
+    <svg::viewport onMouseDown={handleMouseDown}>
       <SeaView t={t}/>
-
     </svg>
   }
 

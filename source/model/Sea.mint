@@ -1,12 +1,5 @@
 store Sea {
-  state waves =
-    [
-      {
-        x: 30,
-        y: 30,
-        t: 2
-      }
-    ] of Wave
+  state waves = [ ] of Wave
 
   fun addWave (wave : Wave) {
     next
@@ -26,9 +19,7 @@ component SeaView {
       Sea.waves
       |> Array.map(
         (wave : Wave) : Html {
-          <WaveView
-            wave={wave}
-            t={t}/>
+          <WaveView wave={wave} />
         })
     }>
   }

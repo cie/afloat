@@ -3,7 +3,7 @@ enum Clock.Dir {
 }
 
 store Clock {
-  const SPEED = 5
+  const SPEED = 25
   state t = 0
   state last = 0
   state dir = Clock.Dir::Forward

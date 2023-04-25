@@ -5,7 +5,7 @@ record Wave {
 }
 
 component WaveView {
-  property t : Number
+  connect Clock exposing { t }
   property wave : Wave
 
   fun render : Html {
