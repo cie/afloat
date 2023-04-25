@@ -2,18 +2,11 @@
   "name": "afloat",
   "application": {
     "head": "assets/head.html",
-    "title": "afloat",
-    "icon": "assets/favicon.png"
+    "title": "Afloat"
   },
   "external": {
-    "stylesheets": [
-      "assets/style.css"
-    ]
+    "stylesheets": ["assets/style.css"]
   },
-  "source-directories": [
-    "source"
-  ],
-  "test-directories": [
-    "tests"
-  ]
+  "source-directories": ["source"],
+  "test-directories": ["tests"]
 }
