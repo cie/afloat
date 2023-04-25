@@ -17,17 +17,19 @@ component WaveView {
         fill="none"
         stroke="rgba(255,255,255,0.7)"
         stroke-width="1"/>
+
       <circle
         cx={Number.toString(wave.x)}
         cy={Number.toString(wave.y)}
-        r={Number.toString(t - wave.t )}
+        r={Number.toString(Math.abs(t - wave.t))}
         fill="none"
         stroke="rgba(255,255,255,0.5)"
         stroke-width="1"/>
+
       <circle
         cx={Number.toString(wave.x)}
         cy={Number.toString(wave.y)}
-        r={Number.toString(t - wave.t - 1)}
+        r={Number.toString(Math.abs(t - wave.t - 1))}
         fill="none"
         stroke="rgba(255,255,255,0.3)"
         stroke-width="1"/>
