@@ -1,5 +1,6 @@
 store Sea {
   state waves = [ ] of Wave
+  state boats = [ { x: 200, y: 200 } ] of Boat
 
   fun addWave (wave : Wave) {
     next
@@ -15,12 +16,21 @@ component SeaView {
   property t : Number
 
   fun render {
-    <{
-      Sea.waves
-      |> Array.map(
-        (wave : Wave) : Html {
-          <WaveView wave={wave} />
-        })
-    }>
+    <g>
+      <{
+        Sea.waves
+        |> Array.map(
+          (wave : Wave) : Html {
+            <WaveView wave={wave} />
+          })
+      }>
+      <{
+        Sea.boats
+        |> Array.map(
+          (boat : Boat) : Html {
+            <BoatView boat={boat} />
+          })
+      }>
+    </g>
   }
 }
