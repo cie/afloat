@@ -12,8 +12,16 @@ component Viewport {
   }
 
   fun render : Html {
-    <svg::viewport viewBox="0 0 100 100">
+    <svg::viewport
+      viewBox="0 0 100 100"
+      onMouseDown={handleMouseDown}
+      >
       <SeaView t={Clock.t}/>
     </svg>
+  }
+
+  fun handleMouseDown(e: Html.Event) {
+    Sea.addWave({x: e.clientX, y: e.clientY, t: Clock.t})
+    next { }
   }
 }
